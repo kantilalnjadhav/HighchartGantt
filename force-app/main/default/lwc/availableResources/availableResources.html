@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="List of Available Resources">
+        <template for:each={resourcelist} for:item="resource">
+            <ul key={resource.Id} class="slds-list_dotted">
+                <li>{resource.Name} , {resource.Name__c}</li>
+
+            </ul>
+        </template>
+    </lightning-card>
+</template>

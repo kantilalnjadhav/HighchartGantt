@@ -1,0 +1,77 @@
+<aura:component controller="ShiftPopupController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="resources" type="List" />
+    <aura:attribute name="selectedResource" type="String" />
+    <lightning:navigation aura:id="navigationService" />
+    <aura:method name="submitDR" action="{!c.openEventPopup}">        
+        <aura:attribute name="showModalFade" type="string"/>
+        <aura:attribute name="darkModalBackdrop" type="String"/>
+        
+    </aura:method>
+    <!--<aura:handler name="init" value="{!this}" action="{!c.fetchResources}" />--> 
+    <section role="dialog" class="slds-modal" aura:id="modalFade">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeEventPopup}">
+                    <!--<c:svg class="slds-button__icon slds-button__iconlarge" ariaHidden="true" xlinkHref="/resource/SLDS090/assets/icons/utility-sprite/svg/symbols.svg#close" />-->
+                </button>
+ 
+                <h2 class="slds-text-heading_medium slds-hyphenate">Create Shift</h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium">         
+                <div class="slds">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-p-horizontal--medium slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                            <div class="slds-form-element">
+                                <lightning:input aura:id="startDateInput" label="Start Date Time" type="datetime" />
+                                <!--<label class="slds-form-element__label">Start Date Time</label>
+                                <div class="slds-form-element__controller">
+                                    <ui:inputDatetime class="slds-input" value="" aura:id="userName"/>
+                                </div>-->
+                            </div>
+                        </div>            
+                    </div>
+ 
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-p-horizontal--medium slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                            <div class="slds-form-element">
+                                <lightning:input aura:id="endDateInput" label="End Date Time" type="datetime" />
+                                <!--<label class="slds-form-element__label">Email</label>
+                                <div class="slds-form-element__controller">
+                                    <ui:inputEmail class="slds-input" value="" aura:id="userEmail"/>
+                                </div>-->
+                            </div>
+                        </div>
+ 
+                    </div>
+ 
+                    <div class="slds-p-horizontal--medium slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                        <div class="slds-form-element">
+                            <!--<lightning:combobox aura:id="resourceSelect" label="Select a Resource" placeholder="Select a Resource"  value="{!v.selectedResource}" options="{!v.resourcesOptions.Name}" />-->
+                            <div class="slds-form-element__controller">
+                              
+                                <lightning:select aura:id="resourceSelect" label="Resource" value="{!v.selectedResource}">
+                                    <option value="">-- None --</option>    
+                                <aura:iteration items="{!v.resources}" var="resource">
+                                        <option value="{!resource.Id}">{!resource.Name__c}</option>
+                                    </aura:iteration>
+                                </lightning:select> 
+                            </div>
+                        </div>
+                    </div>
+ 
+                    
+  
+                </div>
+ 
+            </div>
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button--destructive" onclick="{!c.closeEventPopup}">Cancel</button>
+                <button class="slds-button slds-button_brand" onclick="{!c.saveShift}">Save</button>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop" aura:id="modalBackdrop"></div>
+ 
+</aura:component>
+
+

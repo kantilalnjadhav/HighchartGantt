@@ -1,0 +1,16 @@
+<aura:component controller="GanttChartAppointmantController"
+    implements="force:appHostable,lightning:availableForFlowActions,flexipage:availableForAllPageTypes">
+    <ltng:require
+    scripts="{!join(',', $Resource.Gantt + '/HIghChartFinal/highcharts.js', $Resource.Gantt + '/HIghChartFinal/accessibility.js',$Resource.Gantt + '/HIghChartFinal/drilldown.js',$Resource.Gantt + '/HIghChartFinal/full-screen.js',$Resource.Gantt + '/HIghChartFinal/gantt.js',$Resource.Gantt + '/HIghChartFinal/highcharts-more.js',$Resource.Gantt + '/HIghChartFinal/exporting.js',$Resource.Gantt + '/HIghChartFinal/draggable-points.js', $Resource.Gantt + '/HIghChartFinal/xrange.js')}"
+        
+        afterScriptsLoaded="{!c.initChart}" />
+
+        <div class="slds-p-around--medium">
+            <button class="slds-button slds-button--brand" onclick="{!c.OpenEventPopup}">Create Appointment</button>
+            <button id="delete" onclick="{!c.deleteSelectedRecord}" class="slds-button slds-button--destructive slds-m-left_x-small">Delete record</button>
+        </div>
+
+    <div aura:id="ganttContainer" class="ganttcontainer">
+    </div>
+
+</aura:component>

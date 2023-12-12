@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.right-pane {
+    width: 80%; /* Adjust widths as needed */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.left-pane {
+    width: 15%; 
+    padding: 10px;
+    border-right: 1px solid #ccc;
+    overflow-y: auto;
+    max-height: 600px; /* Adjust as needed */
+}

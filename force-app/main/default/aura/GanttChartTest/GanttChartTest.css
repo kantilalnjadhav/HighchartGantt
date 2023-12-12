@@ -1,0 +1,118 @@
+.THIS .chartcontainer{
+    margin: 20px;
+}
+.THIS .button-container {
+    
+    float: right; /* Move the button container to the right */
+    margin-right: 30px;
+    
+   
+}
+.THIS #btn1{
+    float: right;
+	margin-right: 30px;
+   	
+}
+.THIS #btn2{
+    float: right;
+	margin-right: 10px;
+   	
+}
+.THIS #btn3{
+    float: right;
+	margin-right: 10px;
+   	
+}
+
+/*.THIS .buttoncontainer {
+    margin-bottom: 10px;
+}*/
+
+.THIS .filterbutton {
+    margin-right: 10px;
+}
+
+.THIS .ganttcontainer {
+    height: 800px;
+    position: relative;
+     z-index: 1;
+    
+}
+.THIS .create-shift-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1001; /* Ensure the button is above the Gantt chart */
+}
+.THIS #delete {
+    margin-left: 10px; /* Adjust the margin as needed */
+}
+/*.THIS.multiselect {
+  width: 200px;
+   display: inline-block;
+    position: absolute;
+   z-index: 1002;
+    
+}*/
+
+.THIS.selectBox {
+  position: relative;
+ 	/*display: flex;*/  
+  
+}
+
+.THIS.selectBox select {
+  width: 100%;
+  font-weight: bold;
+   
+ 
+}
+
+.THIS.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+   
+   
+}
+
+.THIS #checkboxes {
+  display: none;
+  border: 3px #dadada solid;
+    /*border: none;*/
+     background-color: white;
+    margin-right: 10px;
+    position: absolute;
+	right: 0;
+    z-index: 1003;
+}
+.THIS #checkboxes label[for="one"]{
+    margin-bottom: 6px;
+    margin-top: 4px;
+    margin-left: 4px;
+}
+.THIS #checkboxes label[for="two"]{
+    margin-bottom: 6px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+.THIS #checkboxes label[for="three"]{
+    margin-bottom: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.THIS #checkboxes label {
+  display: block;
+    /*margin-right: 1px;*/
+}
+
+.THIS #checkboxes label:hover {
+  /*background-color: #1e90ff;*/
+	background-color:aliceblue;  
+}
+/*.THIS.hide-option {
+        display: none;
+    }*/

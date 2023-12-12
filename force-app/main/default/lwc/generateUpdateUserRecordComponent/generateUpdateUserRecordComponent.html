@@ -1,0 +1,33 @@
+<template>
+    <lightning-card>
+        <div if:false={hasAPIUserId}>
+            <lightning-button label="Create App User" title="Create App User" onclick={handleClick} class="slds-align_absolute-center"></lightning-button>
+        </div>
+        <div if:true={hasAPIUserId}>
+            <lightning-button label="Update App User" title="Update App User" onclick={handleClick} class="slds-align_absolute-center"></lightning-button>
+        </div>
+    </lightning-card>
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <div if:true={hasResource} class="slds-modal__content slds-p-around_medium">
+                    <div if:false={hasAPIUserId} class="slds-modal__content slds-p-around_medium">
+                        <lightning-flow flow-api-name='Generate_Integration_User' onstatuschange={handleFlowStatusChange} flow-input-variables={inputVariables}></lightning-flow>
+                    </div>
+                    <div if:true={hasAPIUserId} class="slds-modal__content slds-p-around_medium">
+                        <span>User cannot update app user records yet.</span>
+                        <!--<lightning-flow flow-api-name='Update_User_Record' onstatuschange={handleFlowStatusChange} flow-input-variables={inputVariables}></lightning-flow>-->
+                    </div>
+                </div>
+                <footer class="slds-modal__footer"></footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

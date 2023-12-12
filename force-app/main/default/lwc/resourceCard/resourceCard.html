@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="Resource">
+        <template if:true={resourceRecords}>
+            <ul>
+                <template for:each={resourceRecords} for:item="resource">
+                    <li key={resource.Id}>{resource.Name}</li>
+                </template>
+            </ul>
+        </template>
+        <template if:false={resources}>
+            No resources found.
+        </template>
+    </lightning-card>
+</template>

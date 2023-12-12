@@ -1,0 +1,13 @@
+<aura:component description="overrideStandardButtonExample" implements="lightning:actionOverride,force:hasRecordId">
+    <aura:attribute name="recordId" type="String"/>
+    <lightning:listView aura:id="listObjects"
+                        objectApiName="Passenger_Detail_DE__c"
+                        listName="All"
+                        rows="25"
+                        showSearchBar="true"
+                        showActionBar="true"
+                        enableInlineEdit="true"
+                        showRowLevelActions="true"
+                        />
+    <c:passengerDetailFlowWrapper recordId="{!v.recordId}" />
+</aura:component>

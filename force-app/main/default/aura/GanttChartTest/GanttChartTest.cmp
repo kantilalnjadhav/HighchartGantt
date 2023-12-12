@@ -1,0 +1,53 @@
+<aura:component controller="GanttChartController"
+    implements="force:appHostable,lightning:availableForFlowActions,flexipage:availableForAllPageTypes">
+  
+    <aura:attribute name="selectedShiftId" type="String" default="" />
+    
+    <ltng:require
+        scripts="{!join(',', $Resource.Gantt + '/HIghChartFinal/highcharts.js',$Resource.Gantt + '/HIghChartFinal/moment.js', $Resource.Gantt + '/HIghChartFinal/accessibility.js',$Resource.Gantt + '/HIghChartFinal/drilldown.js',$Resource.Gantt + '/HIghChartFinal/full-screen.js',$Resource.Gantt + '/HIghChartFinal/gantt.js',$Resource.Gantt + '/HIghChartFinal/highcharts-more.js',$Resource.Gantt + '/HIghChartFinal/exporting.js',$Resource.Gantt + '/HIghChartFinal/draggable-points.js',$Resource.Gantt + '/HIghChartFinal/xrange.js',$Resource.Gantt + '/HIghChartFinal/moment.js',$Resource.Gantt + '/HIghChartFinal/moment-timezone-with-data.js',$Resource.Gantt + '/HIghChartFinal/broken-axis.js')}"
+        afterScriptsLoaded="{!c.initChart}" />
+    
+  
+    <c:CreateShiftPopup aura:id="eventPopId"/>  
+    
+    <div class="slds-p-around--medium">
+        <button class="slds-button slds-button--brand" onclick="{!c.OpenEventPopup}">Create Shift</button>
+        <button id="delete" onclick="{!c.deleteSelectedRecord}" class="slds-button slds-button--destructive slds-m-left_x-small">Delete record</button>
+   		
+	<div class="button-container">
+     	 <form>
+         <div class="multiselect">
+    <div class="selectBox" onclick="showCheckboxes()">
+      <!--<select >
+        <option> Select Option</option>
+
+   </select>-->
+      
+
+        <div class="selectedOption">
+            <lightning:icon iconName="utility:filterList" class="filter-icon" alternativeText="Filter" />
+            </div>
+      <div class="overSelect"></div>
+    </div>
+    <div id="checkboxes">
+      <label for="one">
+        <input type="checkbox" id="one" /> All Active Resources</label>
+      <!--<label for="two">
+        <input type="checkbox" id="two" /> Resource Name: A to Z</label>-->
+      <label for="three">
+        <input type="checkbox" id="three" /> Resource Name: Z to A</label>
+     </div>
+    </div>
+    </form>
+  
+    </div>
+        <button id="btn1">MONTH</button>
+        <button id="btn2">WEEK</button>
+        <button id="btn3">DAY</button>
+        
+    </div>
+
+        
+<div aura:id="ganttContainer" class="ganttcontainer"> </div>
+
+</aura:component>

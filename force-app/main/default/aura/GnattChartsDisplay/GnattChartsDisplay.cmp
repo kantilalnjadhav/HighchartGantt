@@ -1,0 +1,32 @@
+<aura:component implements="force:appHostable,lightning:availableForFlowActions,flexipage:availableForAllPageTypes" >
+    <aura:attribute name="displayShiftGantt" type="Boolean" default="false" />
+    <aura:attribute name="displayAppointmentGantt" type="Boolean" default="true" />
+    <aura:attribute name="displayshiftAppointment" type="Boolean" default="false" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    
+   
+  <lightning:card>
+
+        <div class="slds-m-left_x-small">
+            <lightning:button label="Appointment Gantt Chart" variant="brand" onclick="{!c.showAppointmentChart}" />
+            <lightning:button label="Shift Gantt Chart" variant="brand" onclick="{!c.showShiftChart}" />
+            <lightning:button label="Shift/Appointment Chart" variant="brand" onclick="{!c.showShiftApptChart}" />
+
+        </div>
+        
+        <lightning:card>
+    <aura:if isTrue="{!v.displayShiftGantt}">
+        <c:GanttChartTest />
+    </aura:if>
+</lightning:card>
+    <aura:if isTrue="{!v.displayAppointmentGantt}">
+        <c:GanttChartAppointment />
+    </aura:if>
+    <lightning:card>
+        <aura:if isTrue="{!v.displayshiftAppointment}">
+            <c:shiftAppointmentchart/>
+        </aura:if>
+    </lightning:card>
+
+    </lightning:card>
+</aura:component>

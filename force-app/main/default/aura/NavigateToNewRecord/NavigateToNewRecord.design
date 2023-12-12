@@ -1,0 +1,4 @@
+<design:component>
+	<design:attribute name="leadId" label="Id of the New Record" /> 
+ 
+</design:component>
